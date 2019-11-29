@@ -1,0 +1,14 @@
+version: "3"
+services:
+  webpack-client:
+    build: ./
+    command: npm run webpack-watch:client
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+  webpack-server:
+    build: ./
+    command: npm run webpack-watch:server
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src

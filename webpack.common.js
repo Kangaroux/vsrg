@@ -1,16 +1,20 @@
 module.exports = {
-  entry: "./src/index",
-  devtool: "eval-source-map",
+  output: {
+    filename: '[name].bundle.js'
+  },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader",
+        use: 'ts-loader',
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [".js", ".ts"]
+    extensions: ['.js', '.ts']
+  },
+  node: {
+    fs: 'empty'
   }
-};
+}

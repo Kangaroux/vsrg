@@ -10,7 +10,7 @@ export class PlayScene extends Phaser.Scene {
   create() {
     this.notefield = new NoteField(this, 0, 0, config.game.keyCount)
 
-    this.notefield.setX((this.scale.width - this.notefield.getBounds().width) / 2)
+    // this.notefield.x = (this.scale.width - this.notefield.getBounds().width) / 2
     this.notefield.setReceptorAngles(...config.game.receptorRotations)
     this.add.container(0, 0, this.notefield)
 
@@ -19,7 +19,10 @@ export class PlayScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('arrow', 'assets/arrow.png')
+    // Note
+    this.load.image(config.assets.note.name, config.assets.note.path)
+
+    // Receptor
     this.load.spritesheet(
       config.assets.receptor.name,
       config.assets.receptor.path,
@@ -33,5 +36,7 @@ export class PlayScene extends Phaser.Scene {
     for (let i = 0; i < config.game.keyCount; i++) {
       this.notefield.setPressed(i, this.keys[config.game.keys[i]].isDown)
     }
+
+    this.notefield.update()
   }
 }

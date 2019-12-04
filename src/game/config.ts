@@ -9,6 +9,12 @@ const phaser: Phaser.Types.Core.GameConfig = {
 
 const config = {
   assets: {
+    note: {
+      width: 128,
+      height: 128,
+      name: 'note',
+      path: 'assets/arrow.png'
+    },
     receptor: {
       width: 128,
       height: 128,
@@ -17,10 +23,12 @@ const config = {
     }
   },
   game: {
+    columnWidth: 128,
+    columnSpacing: 16,
     keys: ['Z', 'X', 'PERIOD', 'FORWARD_SLASH'],
     keyCount: 4,
     receptorRotations: [90, 0, 180, 270],
-    scrollSpeed: 500
+    scrollSpeed: 1000
   },
   phaser
 }
